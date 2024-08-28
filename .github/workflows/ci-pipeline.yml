@@ -201,7 +201,7 @@ jobs:
               exit "$exit_code"
             fi
             echo "Updating README.md for bitnami/${CHART}"
-            readme-generator --values "bitnami/${CHART}/values.yaml" --readme "bitnami/${CHART}/README.md" --schema "/tmp/schema.json"
+            readme-generator --values "bitnami/${CHART}/values.yaml" --readme "bitnami/${CHART}/README.md" --schema "bitnami/${CHART}/values.schema.json"
             # Commit all changes, if any
             if git status -s | grep "bitnami/${CHART}"; then
               git add "bitnami/${CHART}" && git commit -m "Update README.md with readme-generator-for-helm" --signoff
